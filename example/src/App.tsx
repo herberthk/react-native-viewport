@@ -1,30 +1,68 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-viewport';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
 
-export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+import React, { useCallback, useState } from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  Dimensions,
+} from 'react-native';
 
-  useEffect(() => {
-    multiply(3, 7).then(setResult);
+import InViewport from 'react-native-viewport';
+
+const Section = () => {
+  const [focused, setFocused] = useState(false);
+
+  const handleChange = useCallback((isVisible: boolean) => {
+    setFocused(isVisible);
   }, []);
 
+  const backgroundColor = focused ? 'red' : '#ccc';
+  console.log('Focused', focused);
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <InViewport
+      visiblePercentage={70}
+      delay={100}
+      onChange={handleChange}
+      style={[styles.section, { backgroundColor }]}
+    >
+      <Text style={focused ? { color: '#fff' } : { color: '#000' }}>
+        {focused ? 'Focused' : 'Not focused'}
+      </Text>
+    </InViewport>
   );
-}
+};
+
+const App = (): React.JSX.Element => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        {[...new Array(5)].map((_, k) => (
+          <Section key={k} />
+        ))}
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+  section: {
+    width: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').height,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomColor: 'blue',
+    borderBottomWidth: 4,
   },
 });
+
+export default App;

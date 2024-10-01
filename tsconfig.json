@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-viewport": ["./src/index"]
+      "react-native-viewport": ["./src/index.tsx"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
