@@ -17,8 +17,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    env:
-      NPM_TOKEN: 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
+    # env:
+    #   NPM_TOKEN: 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
     # Only run if the build and test workflow succeeds
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
@@ -33,5 +33,4 @@ jobs:
         run: npx release-it --ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ env.NPM_TOKEN }}
-        #   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
