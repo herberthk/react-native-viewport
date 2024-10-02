@@ -1,0 +1,28 @@
+name: Release
+
+# This will trigger the workflow both on a push to main and when a pull request is merged into main.
+on:
+    push:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup
+        uses: ./.github/actions/setup
+
+      # Run release-it to publish package to npm and create a GitHub release
+      - name: Publish package and create GitHub release
+        run: npx release-it --ci
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
