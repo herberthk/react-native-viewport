@@ -110,14 +110,16 @@
     "git": {
       "commitMessage": "chore: release ${version}",
       "tagName": "v${version}",
-      "requireCleanWorkingDir": true
+      "requireCleanWorkingDir": true,
+      "tagAnnotation": "Release v${version}"
     },
     "npm": {
       "publish": true,
       "access": "public"
     },
     "github": {
-      "release": true
+      "release": true,
+      "releaseName": "Release v${version}"
     },
     "plugins": {
       "@release-it/conventional-changelog": {
