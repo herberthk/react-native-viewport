@@ -1,5 +1,5 @@
 {
-  "name": "react-native-viewport",
+  "name": "@herberthtk/react-native-viewport",
   "version": "0.1.0",
   "description": "A React Native wrapper to check whether a component is in the view port to track impressions",
   "source": "./src/index.tsx",
@@ -60,7 +60,8 @@
   },
   "homepage": "https://github.com/herberthk/react-native-viewport#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^17.0.2",
@@ -108,10 +109,12 @@
   "release-it": {
     "git": {
       "commitMessage": "chore: release ${version}",
-      "tagName": "v${version}"
+      "tagName": "v${version}",
+      "requireCleanWorkingDir": true
     },
     "npm": {
-      "publish": true
+      "publish": true,
+      "access": "public"
     },
     "github": {
       "release": true
@@ -120,6 +123,9 @@
       "@release-it/conventional-changelog": {
         "preset": "angular"
       }
+    },
+    "hooks": {
+      "before:init": ["npm run test"]
     }
   },
   "eslintConfig": {
