@@ -1,18 +1,22 @@
 name: Release
 
-# This will trigger the workflow both on a push to main and when a pull request is merged into main.
+# This will trigger the workflow when a pull request is merged into main.
 on:
     push:
-      branches:
-        - main
     pull_request:
       branches:
         - main
+    workflow_run:
+        workflows: ["Build and Test"]  # Name of the triggering workflow
+        types:
+          - completed  # Run this workflow when the 'Build and Test' workflow completes
+
 
 jobs:
   release:
     runs-on: ubuntu-latest
-
+    # Only run if the build and test workflow succeeds
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
