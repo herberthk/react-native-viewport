@@ -1,7 +1,9 @@
+
 # react-native-viewport
+![Build Status](https://github.com/herberthk/react-native-viewport/actions/workflows/ci.yml/badge.svg)[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)![Supports Android](https://img.shields.io/badge/Supports-Android-green.svg)![Supports iOS](https://img.shields.io/badge/Supports-iOS-blue.svg)
 
 A fully customizable React Native wrapper to check whether a component is in the view port to track impressions
-  ## Features
+  ## Demos
   ##### 1. Track if the view container is 100% visible on the screen
 ![100% view](./view-100.gif)
 ##### 2. Set a custom minimum value to Track and trigger visible if the view container is visible on the screen (For this case, the minimum value 70% to trigger isVisibility)
@@ -11,7 +13,9 @@ A fully customizable React Native wrapper to check whether a component is in the
 
 ```sh
     npm i @herberthtk/react-native-viewport
-
+```
+Or
+```
     yarn add @herberthtk/react-native-viewport
 ```
 
@@ -74,12 +78,22 @@ export default App;
 
 ```
 
+#### Component props
 
-## Contributing
+| Property | type | Required | Description | Default value |
+| ---------| ------- | ------- | -------- | -------- |
+| disabled | boolean  | false  | If enabled the component will not track visibility status    | false |
+| delay    | number | false   | How frequent to check visibility status. Not setting lower less than a second will increase frequency of updates leading performance issues especially in old architecture bridge mode   | 1000ms |
+| visiblePercentage | number | false | The minimum percentage of the container to be considered visible. By default the container shall be considered visible if 100% of it is visible but you can modify the value to 70, 60, 50 or any other value but it must be less than than 100   | 100 |
+| onChange          | Function |  true | This is the core and exposed method that listens and updates visibility status | undefined |
+
+This component also accepts all properties of the `View` component like `style` [Check full list of properties here](https://reactnative.dev/docs/view)
+
+#### Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
-## License
+#### License
 
 MIT
 
