@@ -1,22 +1,25 @@
 # react-native-viewport
 
-A React Native wrapper to check whether a component is in the view port to track impressions
+A fully customizable React Native wrapper to check whether a component is in the view port to track impressions
+  ## Features
+  ##### 1. Track if the view container is 100% visible on the screen
+![100% view](./view-100.gif)
+##### 2. Set a custom minimum value to Track and trigger visible if the view container is visible on the screen (For this case, the minimum value 70% to trigger isVisibility)
+![70% view](./view-70.gif)
 
 ## Installation
 
 ```sh
-    npm install react-native-viewport
-```
-OR
-```sh
-    yarn add react-native-viewport
+    npm i @herberthtk/react-native-viewport
+
+    yarn add @herberthtk/react-native-viewport
 ```
 
 ## Usage
 
 
 ```js
-import InViewport from 'react-native-viewport';
+import InViewport from '@herberthtk/react-native-viewport';
 
  const Section = () => {
   const [focused, setFocused] = useState(false);
