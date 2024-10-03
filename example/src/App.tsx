@@ -14,7 +14,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import InViewport from 'react-native-viewport';
+import InViewport from '@herberthtk/react-native-viewport';
 
 const Section = () => {
   const [focused, setFocused] = useState(false);
