@@ -1,6 +1,6 @@
 {
   "name": "@herberthtk/react-native-viewport",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A React Native wrapper to check whether a component is in the view port to track impressions",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -50,7 +50,10 @@
     "android",
     "react-component",
     "intersection-observer",
-    "impressions","view-port","in-view-port","scroll-impressions"
+    "impressions",
+    "view-port",
+    "in-view-port",
+    "scroll-impressions"
   ],
   "repository": {
     "type": "git",
