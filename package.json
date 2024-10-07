@@ -50,7 +50,7 @@
     "android",
     "react-component",
     "intersection-observer",
-    "impressions"
+    "impressions","view-port","in-view-port","scroll-impressions"
   ],
   "repository": {
     "type": "git",
