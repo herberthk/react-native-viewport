@@ -36,8 +36,8 @@ import InViewport from '@herberthtk/react-native-viewport';
 
   return (
     <InViewport
-      threshold={0.7}
-      delay={100}
+      threshold={0.7} // This component will be considered visible if it is 70% visible (Default is 1 that means 100%)  
+      delay={100} // This component will check if it is visible every 200ms (default is 1000ms or 1 second) )
       onChange={handleChange}
       style={[styles.section, { backgroundColor }]}
     >
