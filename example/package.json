@@ -11,12 +11,13 @@
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
     "@herberthtk/react-native-viewport": "^0.1.1",
-    "expo": "~51.0.28",
+    "expo": "^45.0.8",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
-    "react-native-web": "~0.19.10"
+    "react-native-web": "~0.19.10",
+    "release-it": "17.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
