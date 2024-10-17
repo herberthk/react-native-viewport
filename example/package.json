@@ -11,7 +11,7 @@
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
     "@herberthtk/react-native-viewport": "^0.1.1",
-    "expo": "^45.0.8",
+    "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
