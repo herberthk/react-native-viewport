@@ -1,10 +1,12 @@
 import React, { Component, type RefObject, memo } from 'react';
 import { View, Dimensions, type ViewProps } from 'react-native';
+import debounce from 'lodash/debounce';
+
 interface InViewportProps extends ViewProps {
   disabled?: boolean;
   delay?: number;
   onChange: (isVisible: boolean) => void;
-  visiblePercentage?: number; // Add visiblePercentage prop for custom visibility threshold
+  threshold?: number;
 }
 
 interface InViewportState {
@@ -18,15 +20,26 @@ class InViewport extends Component<InViewportProps, InViewportState> {
   private myview: RefObject<View> = React.createRef<View>();
   private interval: NodeJS.Timeout | null = null;
   private lastValue: boolean | null = null;
+  private subscription: { remove: () => void } | null = null; // Type for the subscription object
 
   constructor(props: InViewportProps) {
     super(props);
     this.state = { rectTop: 0, rectBottom: 0, rectHeight: 0, rectWidth: 0 };
+    this.handleVisibilityChange = debounce(this.handleVisibilityChange, 200);
+  }
+
+  handleVisibilityChange(isVisible: boolean) {
+    this.props.onChange(isVisible);
   }
 
   componentDidMount() {
     if (!this.props.disabled) {
       this.startWatching();
+      this.isInViewPort(); // Check immediately on mount
+      this.subscription = Dimensions.addEventListener(
+        'change',
+        this.isInViewPort
+      );
     }
   }
 
@@ -43,6 +56,10 @@ class InViewport extends Component<InViewportProps, InViewportState> {
 
   componentWillUnmount() {
     this.stopWatching();
+    // Remove the event listener when the component unmounts
+    if (this.subscription) {
+      this.subscription.remove();
+    }
   }
 
   startWatching() {
@@ -71,9 +88,23 @@ class InViewport extends Component<InViewportProps, InViewportState> {
   }
 
   isInViewPort() {
+    let visiblePercentage = 100; // Default to 100
+
+    if (this.props?.threshold) {
+      const threshold = this.props.threshold;
+      // Handle invalid threshold values
+      if (threshold <= 0 || threshold > 1) {
+        console.error(
+          'Threshold should be greater than zero and less or equal to one'
+        );
+      } else {
+        visiblePercentage = threshold * 100;
+      }
+    }
+
     const windowDimensions = Dimensions.get('window');
     const { rectTop, rectBottom, rectHeight } = this.state;
-    const visiblePercentage = this.props.visiblePercentage || 100; // Default to 100% visibility
+    //const visiblePercentage = this.props?.threshold * 100 || 100; // Default to 100% visibility
 
     const visibleHeight =
       Math.min(rectBottom, windowDimensions.height) - Math.max(rectTop, 0);
@@ -87,7 +118,8 @@ class InViewport extends Component<InViewportProps, InViewportState> {
 
     if (this.lastValue !== isVisible) {
       this.lastValue = isVisible;
-      this.props.onChange(isVisible);
+      // this.props.onChange(isVisible);
+      this.handleVisibilityChange(isVisible); // Use the debounced function
     }
   }
 
