@@ -36,7 +36,7 @@ import InViewport from '@herberthtk/react-native-viewport';
 
   return (
     <InViewport
-      visiblePercentage={70}
+      threshold={0.7}
       delay={100}
       onChange={handleChange}
       style={[styles.section, { backgroundColor }]}
@@ -84,7 +84,7 @@ export default App;
 | ---------| ------- | ------- | -------- | -------- |
 | disabled | boolean  | false  | If enabled the component will not track visibility status    | false |
 | delay    | number | false   | How frequent to check visibility status. Not setting lower less than a second will increase frequency of updates leading performance issues especially in old architecture bridge mode   | 1000ms |
-| visiblePercentage | number | false | The minimum percentage of the container to be considered visible. By default the container shall be considered visible if 100% of it is visible but you can modify the value to 70, 60, 50 or any other value but it must be less than than 100   | 100 |
+| threshold | number | false | Any number that is greater than 0 but less than or equal to 1, 1 means 100% 0.7 means 70% and so on, The value indicate the minimum percentage of the container to be considered visible    | 1 |
 | onChange          | Function |  true | This is the core and exposed method that listens and updates visibility status | undefined |
 
 This component also accepts all properties of the `View` component like `style` [Check full list of properties here](https://reactnative.dev/docs/view)
