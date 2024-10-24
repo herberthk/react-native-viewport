@@ -1,6 +1,6 @@
 {
   "name": "@herberthtk/react-native-viewport",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A React Native wrapper to check whether a component is in the view port to track impressions",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
