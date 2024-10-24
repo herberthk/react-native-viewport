@@ -2,12 +2,17 @@
 # react-native-viewport
 ![Build Status](https://github.com/herberthk/react-native-viewport/actions/workflows/ci.yml/badge.svg)[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)![Supports Android](https://img.shields.io/badge/Supports-Android-green.svg)![Supports iOS](https://img.shields.io/badge/Supports-iOS-blue.svg)![npm version](https://img.shields.io/npm/v/@herberthtk/react-native-viewport.svg)
 
-A fully customizable React Native wrapper to check whether a component is in the view port to track impressions
+A fully customizable React Native wrapper to check whether a component is in the view port to track impressions, It is purely written in TypeScript
   ## Demos
   ##### 1. Track if the view container is 100% visible on the screen
 ![100% view](./view-100.gif)
 ##### 2. Set a custom minimum value to Track and trigger visible if the view container is visible on the screen (For this case, the minimum value 70% to trigger isVisibility)
 ![70% view](./view-70.gif)
+
+### Why choose this package
+> There many react-native viewport packages on npm but some of them are no longer actively maintained by their authors, doesn't support Typescript, and most importantly none of them support custom threshold for minimum percentage of the view to be considered visible. 
+
+> Since I failed to get a package that fulfils the video requirements of my client's application, I decided to write it myself and we are happy with the results
 
 ## Installation
 

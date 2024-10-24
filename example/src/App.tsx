@@ -27,7 +27,7 @@ const Section = () => {
   console.log('Focused', focused);
   return (
     <InViewport
-      visiblePercentage={70}
+      threshold={0.7}
       delay={100}
       onChange={handleChange}
       style={[styles.section, { backgroundColor }]}
