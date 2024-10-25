@@ -1,6 +1,7 @@
 
 # react-native-viewport
-![Build Status](https://github.com/herberthk/react-native-viewport/actions/workflows/ci.yml/badge.svg)[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)![Supports Android](https://img.shields.io/badge/Supports-Android-green.svg)![Supports iOS](https://img.shields.io/badge/Supports-iOS-blue.svg)![npm version](https://img.shields.io/npm/v/@herberthtk/react-native-viewport.svg)
+![Build Status](https://github.com/herberthk/react-native-viewport/actions/workflows/ci.yml/badge.svg)[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)![Supports Android](https://img.shields.io/badge/Supports-Android-green.svg)![Supports iOS](https://img.shields.io/badge/Supports-iOS-blue.svg)![npm version](https://img.shields.io/npm/v/@herberthtk/react-native-viewport.svg)![npm](https://img.shields.io/npm/dw/@herberthtk/react-native-viewport)
+
 
 A fully customizable React Native wrapper to check whether a component is in the view port to track impressions, It is purely written in TypeScript
   ## Demos
