@@ -90,7 +90,7 @@ export default App;
 | ---------| ------- | ------- | -------- | -------- |
 | disabled | boolean  | false  | If enabled the component will not track visibility status    | false |
 | delay    | number | false   | How frequent to check visibility status. Not setting lower less than a second will increase frequency of updates leading performance issues especially in old architecture bridge mode   | 1000ms |
-| threshold | number | false | Any number that is greater than 0 but less than or equal to 1, 1 means 100% 0.7 means 70% and so on, The value indicate the minimum percentage of the container to be considered visible    | 1 |
+| threshold | number | false | A fraction (0 to 1) that is greater than 0 but less or equal to 1, 1 means 100% 0.7 means 70% and so on, The value indicate the minimum percentage of the container to be considered visible    | 1 |
 | onChange          | Function |  true | This is the core and exposed method that listens and updates visibility status | undefined |
 
 This component also accepts all properties of the `View` component like `style` [Check full list of properties here](https://reactnative.dev/docs/view)
