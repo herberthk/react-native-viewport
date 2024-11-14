@@ -3,7 +3,8 @@
 ![Build Status](https://github.com/herberthk/react-native-viewport/actions/workflows/ci.yml/badge.svg)[![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)![Supports Android](https://img.shields.io/badge/Supports-Android-green.svg)![Supports iOS](https://img.shields.io/badge/Supports-iOS-blue.svg)![npm version](https://img.shields.io/npm/v/@herberthtk/react-native-viewport.svg)![npm](https://img.shields.io/npm/dw/@herberthtk/react-native-viewport)
 
 
-A fully customizable React Native wrapper to check whether a component is in the view port to track impressions, It is purely written in TypeScript
+This is a fully customizable, TypeScript-based React Native component that lets you effortlessly monitor when any component enters or exits the viewport. Perfect for tracking impressions and creating engaging, data-driven experiences, this tool triggers a callback whenever visibility changes, enabling precise in-view tracking. Whether you’re building analytics features, enhancing user experience, or managing dynamic content, this package offers a streamlined, reliable way to detect visibility in scrollable views.
+
   ## Demos
   ##### 1. Track if the view container is 100% visible on the screen
 ![100% view](./view-100.gif)
