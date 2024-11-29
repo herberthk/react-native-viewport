@@ -11,6 +11,9 @@ This is a fully customizable, TypeScript-based React Native component that lets 
 ##### 2. Set a custom minimum value to Track and trigger visible if the view container is visible on the screen (For this case, the minimum value 70% to trigger isVisibility)
 ![70% view](./view-70.gif)
 
+### Test live on your phone
+[Click here to test on your phone using this snack](https://snack.expo.dev/@herberthk/react-native-viewport)
+
 ### Why choose this package
 > There many react-native viewport packages on npm but some of them are no longer actively maintained by their authors, doesn't support Typescript, and most importantly none of them support custom threshold for minimum percentage of the view to be considered visible. 
 
