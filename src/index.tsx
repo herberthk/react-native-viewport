@@ -64,8 +64,6 @@ class InViewport extends Component<InViewportProps, InViewportState> {
   constructor(props: InViewportProps) {
     super(props);
     this.state = { rectTop: 0, rectBottom: 0, rectHeight: 0, rectWidth: 0 };
-    // Debounce handleVisibilityChange for performance
-    this.handleVisibilityChange = debounce(this.handleVisibilityChange, 200);
   }
 
   /**
@@ -74,10 +72,14 @@ class InViewport extends Component<InViewportProps, InViewportState> {
    * Calls the onChange callback with the updated visibility state.
    * Uses a debounced version of the function for efficiency.
    * @param {boolean} isVisible - Whether the component is visible
+   *
+   * Debounce handleVisibilityChange for performance
    */
-  handleVisibilityChange(isVisible: boolean) {
-    this.props.onChange(isVisible);
-  }
+  handleVisibilityChange = debounce((isVisible: boolean) => {
+    if (this.props.onChange) {
+      this.props.onChange(isVisible);
+    }
+  }, 200);
 
   /**
    * componentDidMount
@@ -134,7 +136,7 @@ class InViewport extends Component<InViewportProps, InViewportState> {
    * Starts the interval for monitoring visibility and sets up
    * measurements for the component's position and size.
    */
-  startWatching() {
+  startWatching = () => {
     this.interval = setInterval(() => {
       if (!this.myview.current) {
         return;
@@ -151,18 +153,18 @@ class InViewport extends Component<InViewportProps, InViewportState> {
 
       this.isInViewPort();
     }, this.props.delay || 1000);
-  }
+  };
 
   /**
    * stopWatching
    *
    * Clears the interval that monitors visibility, stopping the checks.
    */
-  stopWatching() {
+  stopWatching = () => {
     if (this.interval) {
       clearInterval(this.interval);
     }
-  }
+  };
 
   /**
    * isInViewPort
@@ -171,7 +173,12 @@ class InViewport extends Component<InViewportProps, InViewportState> {
    * its top and bottom positions, the viewport height, and the specified
    * threshold. Calls handleVisibilityChange if the visibility state changes.
    */
-  isInViewPort() {
+  isInViewPort = () => {
+    // Add defensive programming to ensure props and state are defined before accessing them
+    if (!this.props || !this.state) {
+      console.warn('Props or state is undefined');
+      return;
+    }
     let visiblePercentage = 100; // Default to 100% visibility
 
     if (this.props?.threshold) {
@@ -205,7 +212,7 @@ class InViewport extends Component<InViewportProps, InViewportState> {
       // this.props.onChange(isVisible);
       this.handleVisibilityChange(isVisible); // Debounced visibility change
     }
-  }
+  };
 
   /**
    * render
