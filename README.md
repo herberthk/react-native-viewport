@@ -15,7 +15,7 @@ This is a fully customizable, TypeScript-based React Native component that lets 
 [Click here to test on your phone using this snack](https://snack.expo.dev/@herberthk/react-native-viewport)
 
 ### Why choose this package
-> There many react-native viewport packages on npm but some of them are no longer actively maintained by their authors, doesn't support Typescript, and most importantly none of them support custom threshold for minimum percentage of the view to be considered visible. 
+> There many react-native viewport packages on npm but some of them are no longer actively maintained by their authors, doesn't support Typescript, and most importantly none of them support custom threshold for minimum percentage of the view to be considered visible.
 
 > Since I failed to get a package that fulfils the video requirements of my client's application, I decided to write it myself and we are happy with the results
 
@@ -46,7 +46,7 @@ import InViewport from '@herberthtk/react-native-viewport';
 
   return (
     <InViewport
-      threshold={0.7} // This component will be considered visible if it is 70% visible (Default is 1 that means 100%)  
+      threshold={0.7} // This component will be considered visible if it is 70% visible (Default is 1 that means 100%)
       delay={100} // This component will check if it is visible every 200ms (default is 1000ms or 1 second) )
       onChange={handleChange}
       style={[styles.section, { backgroundColor }]}
@@ -102,6 +102,9 @@ This component also accepts all properties of the `View` component like `style` 
 #### Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
+#### Support
+If you find this package useful, please git a star ⭐ on github to support my efforts, I work on this project in my free time
 
 #### License
 
