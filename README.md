@@ -104,7 +104,7 @@ This component also accepts all properties of the `View` component like `style` 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
 #### Support
-If you find this package useful, please git a star ⭐ on github to support my efforts, I work on this project in my free time
+If you find this package useful, please give it a star ⭐ on github to support my efforts, I work on this project in my free time
 
 #### License
 
